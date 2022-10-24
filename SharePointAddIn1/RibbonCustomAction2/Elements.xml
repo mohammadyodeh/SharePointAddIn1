@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="4e515aff-7365-48fd-8127-4b23e82d42bb.RibbonCustomAction2"
+                RegistrationType="List"
+                RegistrationId="100"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;RibbonCustomAction2&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.List.Actions.Controls._children">
+          <Button Id="Ribbon.List.Actions.RibbonCustomAction2Button"
+                  Alt="Request RibbonCustomAction2"
+                  Sequence="100"
+                  Command="Invoke_RibbonCustomAction2ButtonRequest"
+                  LabelText="Add New Item"
+                  TemplateAlias="o1"
+                  Image32by32="_layouts/15/images/placeholder32x32.png"
+                  Image16by16="_layouts/15/images/placeholder16x16.png" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_RibbonCustomAction2ButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Add_new_item.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+</Elements>
