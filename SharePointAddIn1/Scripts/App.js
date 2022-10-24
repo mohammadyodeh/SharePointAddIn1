@@ -27,6 +27,7 @@ function addNewItem() {
         //create item
         CreateListItemWithDetails(ListProperties, itemData,
             function (entity) {
+                CallExtenralAPI()
                 GetListDefaultView(DefaultListView)
             },
             function (error) {
@@ -162,5 +163,30 @@ function CallRestApi(url, type, success, error) {
 function CancelBtn() {
     var ListGUID = GetListGUID()
     GetListDefaultView(_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists(guid'" + ListGUID + "')/DefaultView")
+}
+
+function CallExtenralAPI() {
+    var itemData = {
+        "Title": $("#Title_Field").val(), "Description": $("#Description_Field").val()
+        , "IsActive": $("#Active_Field").is(":checked"), "ProjectType": $("#Project_Type_Field").val()
+    };
+    $.ajax({
+        url: "https://localhost:44386/api/CreateFile",
+        type: 'POST',
+        async: false,
+        contentType: "application/json;odata=verbose",
+        data: JSON.stringify(itemData),
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (data) {
+            console.log(data)
+        },
+        error: function (data) {
+            console.log(data)
+        }
+    })
 }
 

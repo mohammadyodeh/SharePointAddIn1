@@ -52,6 +52,7 @@
     <Content Include="Scripts\jquery-3.5.0.min.js" />
     <Content Include="Scripts\jquery-3.5.0.slim.js" />
     <Content Include="Scripts\jquery-3.5.0.slim.min.js" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{b8f77f8c-a3ac-4aa7-aec2-8abeeda709d1}</SharePointProjectItemId>
